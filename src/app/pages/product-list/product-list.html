@@ -214,28 +214,39 @@
           <img [src]="product.image"
                class="w-full h-72 object-cover transition duration-500 group-hover:scale-105"/>
         </a>
-        <div class="absolute inset-0 bg-white/40 opacity-0 group-hover:opacity-100
-                    flex items-center justify-center transition duration-300 rounded-[28px]">
-          <a [routerLink]="['/products', product.id]"
-             class="px-6 py-2.5 text-[11px] tracking-[0.12em] uppercase bg-white text-[#3e3a39]
-                    border border-[#e5d6d0] hover:bg-[#f6f2ef] transition">
-            View Details
-          </a>
-        </div>
+        <!-- Overlay -->
+<div class="absolute inset-0 bg-white/40 
+            flex items-center justify-center rounded-[28px]
+            opacity-100 lg:opacity-0 lg:group-hover:opacity-100
+            transition duration-300">
+  <a [routerLink]="['/products', product.id]"
+     class="px-6 py-2.5 text-[11px] tracking-[0.12em] uppercase bg-white text-[#3e3a39]
+            border border-[#e5d6d0] hover:bg-[#f6f2ef] transition">
+    View Details
+  </a>
+</div>
+
       </div>
       <p class="text-[10px] text-[#b9aaa4] uppercase tracking-[0.16em] mb-2">{{ product.category }}</p>
       <h3 class="font-light text-[17px] text-[#3e3a39] mb-2" style="font-family:'Playfair Display',serif;">
         {{ product.name }}
       </h3>
       <p class="text-[14px] text-[#c7a6a1] mb-4">{{ product.price }} EGP</p>
-      <button (click)="addToCart(product)"
-        class="px-6 py-2.5 text-[10px] tracking-[0.12em] uppercase bg-[#c7a6a1] text-white
-               opacity-0 group-hover:opacity-100 transition">
-        Add to Cart
-      </button>
+     <!-- Add to Cart button -->
+<button (click)="addToCart(product)"
+  class="px-6 py-2.5 text-[10px] tracking-[0.12em] uppercase bg-[#c7a6a1] text-white
+         opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition">
+  Add to Cart
+</button>
     </div>
   </div>
 </div>
+
+
+
+
+
+
 
   <!-- ═══ NEWSLETTER ═══ -->
 <div class="bg-[#efe7e3] py-28 px-10 text-center relative overflow-hidden">

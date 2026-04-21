@@ -1,34 +1,49 @@
 <nav class="sticky top-0 z-50 bg-[#f6f2ef]/70 backdrop-blur-2xl
-px-10 py-5 flex items-center justify-between
+px-6 md:px-10 py-5 flex items-center justify-between
 border-b border-[#e9dcd6]/60">
-<div class="text-2xl text-[#3e3a39] font-light select-none cursor-pointer"
-     style="font-family: 'Playfair Display', serif; letter-spacing: 0.16em;">
 
-  <span class="relative inline-block">
-    Shop
-  </span>
+  <!-- LOGO -->
+  <div class="text-2xl text-[#3e3a39] font-light select-none cursor-pointer"
+       style="font-family: 'Playfair Display', serif; letter-spacing: 0.16em;">
 
-  <span class="italic text-[#c7a6a1] relative inline-block ml-1">
-    Zone
-    <span class="absolute left-0 -bottom-1 w-full h-[1px] bg-[#c7a6a1] opacity-60"></span>
-  </span>
+    <span class="relative inline-block">Shop</span>
 
-</div>
+    <span class="italic text-[#c7a6a1] relative inline-block ml-1">
+      Zone
+      <span class="absolute left-0 -bottom-1 w-full h-[1px] bg-[#c7a6a1] opacity-60"></span>
+    </span>
+  </div>
 
- 
-  <div class="flex items-center space-x-8 text-sm text-[#5a5250]">
+  <!-- MOBILE BUTTON -->
+  <button (click)="isMenuOpen = !isMenuOpen"
+          class="md:hidden text-2xl text-[#5a5250] focus:outline-none">
+    ☰
+  </button>
 
-    <!-- NOT logged in -->
+  <!-- MENU -->
+  <div
+    class="absolute top-full left-0 w-full bg-[#f6f2ef]/95 backdrop-blur-xl
+           flex-col items-start px-6 py-4 space-y-4 shadow-md
+           md:shadow-none md:static md:flex md:flex-row md:items-center
+           md:space-y-0 md:space-x-8 md:p-0 md:w-auto
+           transition-all duration-300"
+    [ngClass]="{
+      'flex': isMenuOpen,
+      'hidden md:flex': !isMenuOpen
+    }">
+
+    <!-- NOT LOGGED IN -->
     <ng-container *ngIf="!authService.isLoggedIn()">
 
       <a routerLink="/login"
+         (click)="closeMenu()"
          class="hover:text-[#c7a6a1] transition">
         Login
       </a>
 
       <a routerLink="/register"
-         class="px-6 py-2 rounded-full bg-[#c7a6a1] text-white
-         hover:opacity-90 transition">
+         (click)="closeMenu()"
+         class="px-6 py-2 rounded-full bg-[#c7a6a1] text-white hover:opacity-90 transition">
         Get Started
       </a>
 
@@ -37,11 +52,13 @@ border-b border-[#e9dcd6]/60">
     <!-- LOGGED IN -->
     <ng-container *ngIf="authService.isLoggedIn()">
 
-      <a routerLink="/products" class="hover:text-[#c7a6a1] transition">
+      <a routerLink="/products" (click)="closeMenu()" class="hover:text-[#c7a6a1] transition">
         Shop
       </a>
 
-      <a routerLink="/cart" class="relative hover:text-[#c7a6a1] transition">
+      <a routerLink="/cart"
+         (click)="closeMenu()"
+         class="relative hover:text-[#c7a6a1] transition">
 
         Cart
 
@@ -52,16 +69,16 @@ border-b border-[#e9dcd6]/60">
 
       </a>
 
-      <a routerLink="/orders" class="hover:text-[#c7a6a1] transition">
+      <a routerLink="/orders" (click)="closeMenu()" class="hover:text-[#c7a6a1] transition">
         Orders
       </a>
 
-      <a routerLink="/profile" class="hover:text-[#c7a6a1] transition">
+      <a routerLink="/profile" (click)="closeMenu()" class="hover:text-[#c7a6a1] transition">
         Profile
       </a>
 
-      <button (click)="logout()"
-              class="ml-4 px-5 py-2 rounded-full border border-[#d8c9c3]
+      <button (click)="logout(); closeMenu()"
+              class="px-5 py-2 rounded-full border border-[#d8c9c3]
               text-[#5a5250] hover:border-[#c7a6a1] hover:text-[#c7a6a1]
               transition">
         Logout

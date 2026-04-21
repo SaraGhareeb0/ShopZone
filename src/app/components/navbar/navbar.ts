@@ -20,6 +20,7 @@ import { RouterModule } from '@angular/router';
 export class Navbar {
 
   cartCount = 0;
+  isMenuOpen = false;
 
   constructor(
     public authService: Auth,
@@ -40,5 +41,13 @@ export class Navbar {
   logout() {
     this.authService.logout();
   }
+
+
+
+  closeMenu() {
+    this.isMenuOpen = false;
+  }
+
+
 
 }
