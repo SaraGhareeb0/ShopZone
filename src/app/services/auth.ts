@@ -9,7 +9,8 @@ import { User } from '../models/user.model';
 export class Auth {
 
 
-  private baseUrl = 'http://localhost:3000';
+  // private baseUrl = 'http://localhost:3000';
+  private baseUrl = 'https://json-server-api-production-cbdf.up.railway.app';
 
   constructor(private http: HttpClient) { }
 

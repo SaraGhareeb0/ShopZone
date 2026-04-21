@@ -11,7 +11,8 @@ import { tap } from 'rxjs/operators';
 })
 export class CartService {
 
-  private baseUrl = 'http://localhost:3000';
+  // private baseUrl = 'http://localhost:3000';
+  private baseUrl = 'https://json-server-api-production-cbdf.up.railway.app';
 
 
 

@@ -13,53 +13,6 @@
       "email": "sara@shopzone.com",
       "password": "abcdefgh",
       "role": "admin"
-    },
-    {
-      "name": "test",
-      "email": "t@test.com",
-      "password": "123456",
-      "id": 3
-    },
-    {
-      "name": "test",
-      "email": "t@test.com",
-      "password": "123456",
-      "id": 4
-    },
-    {
-      "name": "Sara Ghareeb",
-      "email": "sara@gmail.com",
-      "password": "12345678",
-      "role": "user",
-      "id": 5
-    },
-    {
-      "name": "Sara Ghareeb ",
-      "email": "sa@gmail.com",
-      "password": "11223344",
-      "role": "user",
-      "id": 6
-    },
-    {
-      "name": "ssaa",
-      "email": "ds@ff.com",
-      "password": "wweerrtt",
-      "role": "user",
-      "id": 7
-    },
-    {
-      "name": "ddss",
-      "email": "dd@gmail.com",
-      "password": "11223344",
-      "role": "user",
-      "id": 8
-    },
-    {
-      "name": "Sara Ghareeb",
-      "email": "sara@gmail.com",
-      "password": "11223344",
-      "role": "user",
-      "id": 9
     }
   ],
   "products": [
@@ -164,76 +117,6 @@
     }
   ],
   "cart": [],
-  "orders": [
-    {
-      "userId": 6,
-      "total": 4200,
-      "status": "pending",
-      "date": "2026-04-21T17:36:56.708Z",
-      "items": [
-        {
-          "productId": 1,
-          "name": "18K Gold Layered Necklace",
-          "quantity": 1,
-          "price": 1400
-        },
-        {
-          "productId": 1,
-          "name": "18K Gold Layered Necklace",
-          "quantity": 2,
-          "price": 1400
-        }
-      ],
-      "id": 1
-    },
-    {
-      "userId": 9,
-      "total": 5860,
-      "status": "pending",
-      "date": "2026-04-21T18:23:38.692Z",
-      "items": [
-        {
-          "productId": 2,
-          "name": "Minimal White Shirt",
-          "quantity": 3,
-          "price": 900
-        },
-        {
-          "productId": 11,
-          "name": "Silk Scarf Premium",
-          "quantity": 2,
-          "price": 680
-        },
-        {
-          "productId": 4,
-          "name": "Minimal Gold Necklace",
-          "quantity": 3,
-          "price": 600
-        }
-      ],
-      "id": 2
-    },
-    {
-      "userId": 9,
-      "total": 4350,
-      "status": "pending",
-      "date": "2026-04-21T18:24:25.305Z",
-      "items": [
-        {
-          "productId": 3,
-          "name": "Minimal Ceramic Vase",
-          "quantity": 1,
-          "price": 750
-        },
-        {
-          "productId": 2,
-          "name": "Minimal White Shirt",
-          "quantity": 4,
-          "price": 900
-        }
-      ],
-      "id": 3
-    }
-  ],
+  "orders": [],
   "$schema": "./node_modules/json-server/schema.json"
 }

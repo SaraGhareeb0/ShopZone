@@ -7,7 +7,8 @@ import { Order } from '../models/order.model';
 })
 export class OrderService {
 
-  private baseUrl = 'http://localhost:3000';
+  // private baseUrl = 'http://localhost:3000';
+  private baseUrl = 'https://json-server-api-production-cbdf.up.railway.app';
 
   constructor(private http: HttpClient) { }
 
