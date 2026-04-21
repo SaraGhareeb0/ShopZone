@@ -1,0 +1,92 @@
+<div class="bg-[#f6f2ef] min-h-screen flex items-center justify-center px-6 py-16 text-[#3e3a39] relative overflow-hidden"
+     style="font-family: 'Inter', sans-serif;">
+
+ 
+ 
+
+  <div *ngIf="user"
+       class="w-full max-w-2xl bg-white/60 backdrop-blur-xl
+       border border-[#eaded8]/60 rounded-[50px]
+       shadow-[0_20px_60px_rgba(0,0,0,0.08)] overflow-hidden relative z-10">
+
+   
+    <div class="p-10 text-center bg-gradient-to-b from-[#c7a6a1] to-[#d8b9b3] text-white relative">
+
+      <!-- subtle glow -->
+      <div class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top,white,transparent)]"></div>
+
+      <!-- Avatar -->
+      <div class="w-20 h-20 mx-auto rounded-full bg-white/20 flex items-center justify-center text-2xl font-light backdrop-blur-md">
+        {{ user.name.charAt(0) }}
+      </div>
+
+      <!-- Name -->
+      <h2 class="mt-4 text-2xl font-light"
+          style="font-family: 'Playfair Display', serif;">
+        {{ user.name }}
+      </h2>
+
+      <p class="text-sm text-white/80 mt-1">
+        {{ user.email }}
+      </p>
+
+    </div>
+
+    <!-- Content -->
+    <div class="p-10 space-y-8">
+
+      <h3 class="text-xs tracking-[0.3em] uppercase text-[#b9a8a3] text-center">
+        Account Details
+      </h3>
+
+      <div class="space-y-6 text-sm">
+
+        <div class="flex justify-between items-center border-b border-[#f0e6e2] pb-3">
+          <span class="text-[#9a8f8a]">Full Name</span>
+          <span class="font-medium">{{ user.name }}</span>
+        </div>
+
+        <div class="flex justify-between items-center border-b border-[#f0e6e2] pb-3">
+          <span class="text-[#9a8f8a]">Email Address</span>
+          <span class="font-medium">{{ user.email }}</span>
+        </div>
+
+        <div class="flex justify-between items-center border-b border-[#f0e6e2] pb-3">
+          <span class="text-[#9a8f8a]">Role</span>
+
+          <span class="px-4 py-1 text-xs rounded-full
+                       bg-[#f3eae6] text-[#a77f7f] font-medium capitalize
+                       border border-[#e7d7d2]">
+            {{ user.role }}
+          </span>
+        </div>
+
+        <div class="flex justify-between items-center">
+          <span class="text-[#9a8f8a]">User ID</span>
+
+          <span class="font-mono text-xs bg-[#f3eae6] px-3 py-1 rounded border border-[#e7d7d2]">
+            {{ userId }}
+          </span>
+        </div>
+
+      </div>
+
+      <!-- Actions -->
+      <div class="pt-8">
+
+        <button
+          class="w-full py-3 rounded-full text-white font-medium
+          bg-gradient-to-r from-[#c7a6a1] to-[#d8b9b3]
+          hover:opacity-90 transition-all duration-300
+          shadow-sm hover:shadow-md hover:scale-[1.02]">
+
+          Logout
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

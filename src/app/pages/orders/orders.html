@@ -1,0 +1,86 @@
+<div class="bg-[#f7f2ef] min-h-screen px-6 md:px-12 py-12 text-[#2f2f2f]">
+
+  <!-- TITLE -->
+  <h2 class="text-4xl md:text-5xl font-light tracking-wide mb-10">
+    My Orders
+    <span class="block w-16 h-[2px] bg-[#d6b8a6] mt-3"></span>
+  </h2>
+
+  <!-- EMPTY STATE -->
+  <div *ngIf="orders.length === 0" class="text-center py-24">
+
+    <p class="text-gray-400 mb-4 text-lg">No orders yet</p>
+
+    <a 
+      routerLink="/products" 
+      class="inline-block px-6 py-2 rounded-full border border-[#c89a9a] 
+             text-[#c89a9a] hover:bg-[#c89a9a] hover:text-white 
+             transition duration-300">
+      Browse Products →
+    </a>
+
+  </div>
+
+  <!-- ORDERS -->
+  <div *ngFor="let order of orders"
+       class="bg-white/70 backdrop-blur-sm border border-[#eaded8]
+       rounded-[24px] p-6 mb-6 shadow-sm hover:shadow-lg transition">
+
+    <!-- HEADER -->
+    <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-2 mb-5">
+
+      <span class="font-medium text-gray-800">
+        Order #{{ order.id }}
+      </span>
+
+      <span class="text-sm text-gray-400">
+        {{ order.date | date:'mediumDate' }}
+      </span>
+
+    </div>
+
+    <!-- STATUS -->
+    <span class="inline-flex items-center px-3 py-1 text-xs font-medium rounded-full capitalize"
+      [ngClass]="{
+        'bg-[#f3eae6] text-yellow-600': order.status === 'pending',
+        'bg-[#eaf0f7] text-blue-500': order.status === 'processing',
+        'bg-[#eaf7ef] text-green-600': order.status === 'delivered',
+        'bg-[#f7eaea] text-red-500': order.status === 'cancelled'
+      }">
+      {{ order.status }}
+    </span>
+
+    <!-- ITEMS -->
+    <div class="mt-5 space-y-3">
+
+      <div *ngFor="let item of order.items"
+           class="flex justify-between items-center text-sm border-b border-[#f1e8e4] pb-2">
+
+        <span class="text-gray-700">
+          {{ item.name }}
+        </span>
+
+        <span class="text-gray-400">
+          × {{ item.quantity }}
+        </span>
+
+      </div>
+
+    </div>
+
+    <!-- TOTAL -->
+    <div class="mt-6 flex justify-between items-center pt-4 border-t border-[#eaded8]">
+
+      <span class="text-gray-600 font-medium">
+        Total
+      </span>
+
+      <span class="text-[#c89a9a] text-lg font-semibold">
+        {{ order.total }} EGP
+      </span>
+
+    </div>
+
+  </div>
+
+</div>

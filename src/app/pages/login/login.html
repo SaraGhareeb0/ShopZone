@@ -1,0 +1,108 @@
+<div class="min-h-[calc(100vh-80px)] flex items-center justify-center bg-[#f6f2ef] px-6 text-[#3e3a39] relative overflow-hidden"
+     style="font-family: 'Inter', sans-serif;">
+
+  <div class="absolute top-0 left-0 w-[500px] h-[500px] bg-[#c7a6a1]/10 blur-3xl rounded-full pointer-events-none"></div>
+  <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#d8b9b3]/10 blur-3xl rounded-full pointer-events-none"></div>
+
+  <!-- CARD -->
+  <div class="w-full max-w-2xl bg-white/50 backdrop-blur-2xl
+              border border-[#eaded8]/60 rounded-[50px]
+              shadow-[0_20px_60px_rgba(0,0,0,0.08)]
+              p-12 relative z-10">
+
+    <!-- TITLE -->
+    <h2 class="text-3xl text-center font-light mb-2"
+        style="font-family: 'Playfair Display', serif;">
+      Welcome Back
+    </h2>
+
+    <p class="text-sm text-center text-[#9a8f8a] mb-8">
+      Sign in to continue your experience
+    </p>
+
+    <form [formGroup]="loginForm"
+          (ngSubmit)="onSubmit()"
+          class="space-y-6">
+
+      <!-- EMAIL -->
+      <div>
+        <input type="email"
+               placeholder="Email Address"
+               formControlName="email"
+               class="w-full px-5 py-3 rounded-full
+               bg-white/70 border border-[#e7ddd8]
+               placeholder-[#b9a8a3]
+               focus:ring-2 focus:ring-[#c7a6a1]/30 focus:outline-none
+               transition shadow-sm" />
+
+        <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid"
+             class="mt-2 text-xs text-[#c77a7a] ml-2">
+
+          <small *ngIf="loginForm.get('email')?.errors?.['required']">
+            Email is required
+          </small>
+
+          <small *ngIf="loginForm.get('email')?.errors?.['email']">
+            Invalid email format
+          </small>
+
+        </div>
+      </div>
+
+      <!-- PASSWORD -->
+      <div>
+        <input type="password"
+               placeholder="Password"
+               formControlName="password"
+               class="w-full px-5 py-3 rounded-full
+               bg-white/70 border border-[#e7ddd8]
+               placeholder-[#b9a8a3]
+               focus:ring-2 focus:ring-[#c7a6a1]/30 focus:outline-none
+               transition shadow-sm" />
+
+        <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid"
+             class="mt-2 text-xs text-[#c77a7a] ml-2">
+
+          <small *ngIf="loginForm.get('password')?.errors?.['required']">
+            Password is required
+          </small>
+
+          <small *ngIf="loginForm.get('password')?.errors?.['minlength']">
+            Minimum 8 characters
+          </small>
+
+        </div>
+      </div>
+
+      <!-- BUTTON -->
+      <button
+        class="w-full py-3 rounded-full text-white font-medium
+        bg-gradient-to-r from-[#c7a6a1] to-[#d8b9b3]
+        hover:opacity-90 transition-all duration-300
+        shadow-sm hover:shadow-md hover:scale-[1.02]
+        disabled:opacity-40 disabled:cursor-not-allowed"
+        [disabled]="loginForm.invalid">
+
+        Login
+
+      </button>
+
+      <!-- ERROR MESSAGE -->
+      <p *ngIf="errorMessage"
+         class="text-center text-sm text-[#c77a7a] mt-2">
+        {{ errorMessage }}
+      </p>
+
+    </form>
+
+    <!-- FOOTER LINK -->
+    <p class="text-center text-sm text-[#9a8f8a] mt-8">
+      Don’t have an account?
+      <a routerLink="/register" class="text-[#c7a6a1] hover:underline">
+        Create one
+      </a>
+    </p>
+
+  </div>
+
+</div>

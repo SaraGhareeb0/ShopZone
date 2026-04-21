@@ -1,0 +1,74 @@
+<nav class="sticky top-0 z-50 bg-[#f6f2ef]/70 backdrop-blur-2xl
+px-10 py-5 flex items-center justify-between
+border-b border-[#e9dcd6]/60">
+<div class="text-2xl text-[#3e3a39] font-light select-none cursor-pointer"
+     style="font-family: 'Playfair Display', serif; letter-spacing: 0.16em;">
+
+  <span class="relative inline-block">
+    Shop
+  </span>
+
+  <span class="italic text-[#c7a6a1] relative inline-block ml-1">
+    Zone
+    <span class="absolute left-0 -bottom-1 w-full h-[1px] bg-[#c7a6a1] opacity-60"></span>
+  </span>
+
+</div>
+
+ 
+  <div class="flex items-center space-x-8 text-sm text-[#5a5250]">
+
+    <!-- NOT logged in -->
+    <ng-container *ngIf="!authService.isLoggedIn()">
+
+      <a routerLink="/login"
+         class="hover:text-[#c7a6a1] transition">
+        Login
+      </a>
+
+      <a routerLink="/register"
+         class="px-6 py-2 rounded-full bg-[#c7a6a1] text-white
+         hover:opacity-90 transition">
+        Get Started
+      </a>
+
+    </ng-container>
+
+    <!-- LOGGED IN -->
+    <ng-container *ngIf="authService.isLoggedIn()">
+
+      <a routerLink="/products" class="hover:text-[#c7a6a1] transition">
+        Shop
+      </a>
+
+      <a routerLink="/cart" class="relative hover:text-[#c7a6a1] transition">
+
+        Cart
+
+        <span class="absolute -top-2 -right-4 text-[10px]
+                     bg-[#c7a6a1] text-white px-1.5 py-0.5 rounded-full">
+          {{ cartCount }}
+        </span>
+
+      </a>
+
+      <a routerLink="/orders" class="hover:text-[#c7a6a1] transition">
+        Orders
+      </a>
+
+      <a routerLink="/profile" class="hover:text-[#c7a6a1] transition">
+        Profile
+      </a>
+
+      <button (click)="logout()"
+              class="ml-4 px-5 py-2 rounded-full border border-[#d8c9c3]
+              text-[#5a5250] hover:border-[#c7a6a1] hover:text-[#c7a6a1]
+              transition">
+        Logout
+      </button>
+
+    </ng-container>
+
+  </div>
+
+</nav>
